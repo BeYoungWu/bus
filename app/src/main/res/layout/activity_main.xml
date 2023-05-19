@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="5dp">
+        android:layout_marginBottom="5dp"
+        android:padding="2dp">
         <EditText
             android:id="@+id/search"
             android:layout_width="0dp"
@@ -44,36 +45,64 @@
                 android:id="@+id/busNo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:text="1137"
-                android:textSize="30dp"/>
+                android:textColor="@color/white"
+                android:textSize="30dp"
+                android:textAlignment="center"
+                android:background="#00ff00"/>
             <TextView
                 android:id="@+id/carNo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
-                android:text="00가 0000"/>
+                android:text="00가 0000"
+                android:layout_marginLeft="4dp"/>
             <TextView
                 android:id="@+id/driver"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="OOO 기사님"/>
+                android:layout_weight="3"
+                android:text="OOO 기사님"
+                android:textSize="18dp"/>
         </LinearLayout>
         <TextView
             android:id="@+id/busRoute"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="하계 - 월계"
+            android:text="탑승 : 하계 <-> 하차 : 월계"
             android:textAlignment="center"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:background="@drawable/box_border"
+            android:layout_margin="4dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/reservation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="하차예약"
+                android:layout_margin="2dp"/>
+            <Button
+                android:id="@+id/evaluation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="평가하기"
+                android:layout_margin="2dp"/>
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/layout_border">
+        android:background="@drawable/box_border"
+        android:layout_margin="4dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -84,6 +113,38 @@
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:src="@drawable/card" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/box_border"
+        android:layout_margin="4dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="탑승정보"
+            android:textSize="18dp"
+            android:textAlignment="center"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/box_border"
+        android:layout_margin="4dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="버스소식"
+            android:textSize="18dp"
+            android:textAlignment="center"/>
+
     </LinearLayout>
 
 </LinearLayout>
