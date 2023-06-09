@@ -1,12 +1,16 @@
 package com.example.bus;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,5 +26,38 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, items);
         auto.setAdapter(adapter);
 
+        // 하차예약 이동
+        Button btnRes = (Button) findViewById(R.id.reservation);
+        btnRes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView arrive = (TextView) findViewById(R.id.arrive);
+                Intent intent = new Intent(getApplicationContext(), ReservationActivity.class);
+                intent.putExtra("arrive", arrive.getText().toString());
+                startActivityForResult(intent, 0);
+            }
+        });
+
+        // 평가하기 이동
+        Button btnEval = (Button) findViewById(R.id.evaluation);
+        btnEval.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), EvaluationActivity.class);
+                startActivity(intent);
+            }
+        });
+
+    }
+
+    // 하차예약 데이터 받아오기
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK) {
+            String hap = data.getStringExtra("arrive");
+            Toast.makeText(getApplicationContext(), "하차 : " + hap, Toast.LENGTH_SHORT).show();
+            // TextView arrive에 "하차 : " + hap 전달하기
+        }
     }
 }
