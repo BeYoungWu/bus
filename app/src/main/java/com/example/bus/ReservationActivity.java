@@ -2,6 +2,8 @@ package com.example.bus;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
@@ -24,6 +26,15 @@ public class ReservationActivity extends Activity {
 
         // 하차 정류장 선택 TextView
         TextView arrive = (TextView) findViewById(R.id.arrive);
+
+        // 자동완성텍스트뷰에 값을 지정하면 TextView에도 값 넘기기
+        auto.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String selectedValue = (String) adapterView.getItemAtPosition(i);
+                arrive.setText(selectedValue);
+            }
+        });
 
     }
 }

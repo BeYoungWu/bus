@@ -42,14 +42,18 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="2dp"
-                android:text="돌아가기"/>
+                android:text="돌아가기"
+                android:textColor="#FFFFFF"
+                android:background="#6404EC"/>
             <Button
                 android:id="@+id/btnRes"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="2dp"
-                android:text="예약하기"/>
+                android:text="예약하기"
+                android:textColor="#FFFFFF"
+                android:background="#6404EC"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

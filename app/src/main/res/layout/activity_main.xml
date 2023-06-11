@@ -13,34 +13,18 @@
         android:orientation="vertical">
 
         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="5dp"
-        android:padding="2dp">
-        <AutoCompleteTextView
-            android:id="@+id/search"
-            android:completionThreshold="0"
-            android:layout_width="0dp"
-            android:layout_height="37dp"
-            android:layout_weight="1"
-            android:hint="버스 또는 정류장 검색"
-            android:textAlignment="center"
-            android:textSize="15dp"
-            android:background="@drawable/box_border"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="검색"/>
-        </LinearLayout>
-
-        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/layout_border"
             android:orientation="vertical"
             android:padding="5dp"
             android:layout_marginBottom="5dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="탑승버스 정보"
+                android:textSize="20dp"
+                android:textAlignment="center"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -106,6 +90,7 @@
                     android:layout_weight="4"
                     android:text="하차예약"
                     android:layout_margin="2dp"/>
+                <!-- 별 다섯개 눌러서 점수 매기기 -->
                 <Button
                     android:id="@+id/evaluation"
                     android:layout_width="0dp"
@@ -127,8 +112,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="등록카드"
-                android:textSize="18dp"
+                android:textSize="20dp"
                 android:textAlignment="center"/>
+            <!-- 카드 등록 안되어있는 이미지로 해놓고 카드등록 창에서 카드이미지 골라오면 이미지 바뀌기 -->
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
@@ -159,11 +145,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="10dp">
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="400dp"
-                    android:src="@drawable/bus1137"
-                    android:contentDescription="버스노선도"/>
+                    android:contentDescription="버스노선도"
+                    android:src="@drawable/bus1137" />
             </LinearLayout>
         </LinearLayout>
 
