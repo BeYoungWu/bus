@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <Button
-                    android:id="@+id/reservation"
+                    android:id="@+id/btnRes"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
@@ -92,7 +92,7 @@
                     android:layout_margin="2dp"/>
                 <!-- 별 다섯개 눌러서 점수 매기기 -->
                 <Button
-                    android:id="@+id/evaluation"
+                    android:id="@+id/btnEval"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
@@ -120,7 +120,7 @@
                 android:layout_height="250dp"
                 android:src="@drawable/card" />
             <Button
-                android:id="@+id/regCard"
+                android:id="@+id/btnCard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
