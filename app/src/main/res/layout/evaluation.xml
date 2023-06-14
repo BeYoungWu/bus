@@ -74,7 +74,7 @@
         android:id="@+id/checkItem1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="항목 1"
+        android:text="청결한 버스 내부"
         android:textSize="16sp"
         android:layout_marginTop="8dp" />
 
@@ -82,7 +82,7 @@
         android:id="@+id/checkItem2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="항목 2"
+        android:text="친절한 기사님"
         android:textSize="16sp"
         android:layout_marginTop="8dp" />
 
@@ -90,7 +90,7 @@
         android:id="@+id/checkItem3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="항목 3"
+        android:text="기사님의 안전운행"
         android:textSize="16sp"
         android:layout_marginTop="8dp" />
 
@@ -98,7 +98,7 @@
         android:id="@+id/checkItem4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="항목 4"
+        android:text="신속한 목적지 도착"
         android:textSize="16sp"
         android:layout_marginTop="8dp" />
 
@@ -106,7 +106,7 @@
         android:id="@+id/checkItem5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="항목 5"
+        android:text="편리한 이용 시스템"
         android:textSize="16sp"
         android:layout_marginTop="8dp" />
 

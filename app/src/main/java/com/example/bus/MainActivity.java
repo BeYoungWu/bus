@@ -20,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     Button btnRes, btnEval, dialogBtnRes, dialogBtnReturn, btnCard;
     TextView arrive, dialogArrive;
 
+    private static final int REQUEST_CODE_EVALUATION = 1;
+    private float rating = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,20 +77,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), EvaluationActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, REQUEST_CODE_EVALUATION);
             }
         });
 
     }
 
-    // 하차예약 데이터 받아오기
+    // 평가하기 데이터 받아오기
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == RESULT_OK) {
-            String hap = data.getStringExtra("arrive");
-            Toast.makeText(getApplicationContext(), "하차 : " + hap, Toast.LENGTH_SHORT).show();
-            // TextView arrive에 "하차 : " + hap 전달하기
+        if (requestCode == REQUEST_CODE_EVALUATION && resultCode == RESULT_OK) {
+            if (data != null && data.hasExtra("rating")) {
+                rating = data.getFloatExtra("rating", 0);
+                Toast.makeText(this, "평점: " + rating, Toast.LENGTH_SHORT).show();
+            }
         }
     }
+
 }

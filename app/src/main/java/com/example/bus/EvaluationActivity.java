@@ -1,8 +1,10 @@
 package com.example.bus;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,7 +18,7 @@ public class EvaluationActivity extends Activity {
     private TextView textSelectedItems;
     private ImageView star1, star2, star3, star4, star5;
     private CheckBox checkItem1, checkItem2, checkItem3, checkItem4, checkItem5;
-
+    private Button submit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,7 @@ public class EvaluationActivity extends Activity {
         checkItem3 = findViewById(R.id.checkItem3);
         checkItem4 = findViewById(R.id.checkItem4);
         checkItem5 = findViewById(R.id.checkItem5);
+        submit = findViewById(R.id.btnSubmit);
 
         star1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,39 +84,42 @@ public class EvaluationActivity extends Activity {
         checkItem4.setOnCheckedChangeListener((buttonView, isChecked) -> updateSelectedItems());
         checkItem5.setOnCheckedChangeListener((buttonView, isChecked) -> updateSelectedItems());
 
-        findViewById(R.id.btnSubmit).setOnClickListener(new View.OnClickListener() {
+        submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                submitEvaluation();
+                Intent intent = new Intent();
+                intent.putExtra("rating", rating);
+                setResult(RESULT_OK, intent);
+                finish();
             }
         });
     }
 
     // 별 클릭시 색칠되기
     private void updateStarRating() {
-//        star1.setImageResource(rating >= 1 ? R.drawable.star_filled : R.drawable.star_empty);
-//        star2.setImageResource(rating >= 2 ? R.drawable.star_filled : R.drawable.star_empty);
-//        star3.setImageResource(rating >= 3 ? R.drawable.star_filled : R.drawable.star_empty);
-//        star4.setImageResource(rating >= 4 ? R.drawable.star_filled : R.drawable.star_empty);
-//        star5.setImageResource(rating >= 5 ? R.drawable.star_filled : R.drawable.star_empty);
+        star1.setImageResource(rating >= 1 ? R.drawable.star_filled : R.drawable.star_empty);
+        star2.setImageResource(rating >= 2 ? R.drawable.star_filled : R.drawable.star_empty);
+        star3.setImageResource(rating >= 3 ? R.drawable.star_filled : R.drawable.star_empty);
+        star4.setImageResource(rating >= 4 ? R.drawable.star_filled : R.drawable.star_empty);
+        star5.setImageResource(rating >= 5 ? R.drawable.star_filled : R.drawable.star_empty);
     }
 
     private void updateSelectedItems() {
         StringBuilder items = new StringBuilder();
         if (checkItem1.isChecked()) {
-            items.append("항목 1, ");
+            items.append("청결, ");
         }
         if (checkItem2.isChecked()) {
-            items.append("항목 2, ");
+            items.append("친절, ");
         }
         if (checkItem3.isChecked()) {
-            items.append("항목 3, ");
+            items.append("안전운행, ");
         }
         if (checkItem4.isChecked()) {
-            items.append("항목 4, ");
+            items.append("신속, ");
         }
         if (checkItem5.isChecked()) {
-            items.append("항목 5, ");
+            items.append("편리, ");
         }
 
         String selectedItems = items.toString();
@@ -123,10 +129,6 @@ public class EvaluationActivity extends Activity {
             selectedItems = selectedItems.substring(0, selectedItems.length() - 2); // Remove trailing comma and space
             textSelectedItems.setText("선택된 항목: " + selectedItems);
         }
-    }
-
-    private void submitEvaluation() {
-        Toast.makeText(this, "평가 점수: " + rating, Toast.LENGTH_SHORT).show();
     }
 
 }
