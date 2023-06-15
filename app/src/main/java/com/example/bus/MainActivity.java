@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,14 +13,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnRes, btnEval, dialogBtnRes, dialogBtnReturn, btnCard;
+    Button btnRes, btnEval, btnCard;
     TextView arrive, dialogArrive;
+    ImageView busRoute;
 
+    // 평가하기
     private static final int REQUEST_CODE_EVALUATION = 1;
     private float rating = 0;
 
@@ -31,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
         btnRes = (Button) findViewById(R.id.btnRes);
         btnEval = (Button) findViewById(R.id.btnEval);
+        btnCard = (Button) findViewById(R.id.btnCard);
         arrive = (TextView) findViewById(R.id.arrive);
+        busRoute = (ImageView) findViewById(R.id.busRoute);
 
         // 하차예약 버튼 클릭 이벤트
         btnRes.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +86,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // 카드등록 이동
+        btnCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), CardActivity.class);
+                startActivityForResult(intent, 0);
+            }
+        });
+
+        // 버스 노선 클릭 이벤트
+        busRoute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 대화상자
+                Dialog dialog = new Dialog(MainActivity.this);
+                dialog.setContentView(R.layout.bus_route);
+
+                ImageView imageView = dialog.findViewById(R.id.busRouteDialog);
+
+                dialog.show();  // 대화상자 표시
+            }
+        });
+
     }
 
     // 평가하기 데이터 받아오기
@@ -93,5 +122,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
 
 }
