@@ -38,6 +38,7 @@ public class EvaluationActivity extends Activity {
         checkItem5 = findViewById(R.id.checkItem5);
         submit = findViewById(R.id.btnSubmit);
 
+        //  첫번째 별 클릭 이벤트
         star1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,6 +47,7 @@ public class EvaluationActivity extends Activity {
             }
         });
 
+        //  두번째 별 클릭 이벤트
         star2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +56,7 @@ public class EvaluationActivity extends Activity {
             }
         });
 
+        //  세번째 별 클릭 이벤트
         star3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,6 +65,7 @@ public class EvaluationActivity extends Activity {
             }
         });
 
+        //  네번째 별 클릭 이벤트
         star4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +74,7 @@ public class EvaluationActivity extends Activity {
             }
         });
 
+        //  다섯번째 별 클릭 이벤트
         star5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,24 +83,28 @@ public class EvaluationActivity extends Activity {
             }
         });
 
+        // 평가 사항 선택시 텍스트 띄우기
         checkItem1.setOnCheckedChangeListener((buttonView, isChecked) -> updateSelectedItems());
         checkItem2.setOnCheckedChangeListener((buttonView, isChecked) -> updateSelectedItems());
         checkItem3.setOnCheckedChangeListener((buttonView, isChecked) -> updateSelectedItems());
         checkItem4.setOnCheckedChangeListener((buttonView, isChecked) -> updateSelectedItems());
         checkItem5.setOnCheckedChangeListener((buttonView, isChecked) -> updateSelectedItems());
 
+        // 제출 버튼 클릭 이벤트
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
+                System.out.println(rating);
                 intent.putExtra("rating", rating);
+                System.out.println(intent);
                 setResult(RESULT_OK, intent);
                 finish();
             }
         });
     }
 
-    // 별 클릭시 색칠되기
+    // 별 클릭시 색칠되기 메서드
     private void updateStarRating() {
         star1.setImageResource(rating >= 1 ? R.drawable.star_filled : R.drawable.star_empty);
         star2.setImageResource(rating >= 2 ? R.drawable.star_filled : R.drawable.star_empty);
@@ -104,6 +113,7 @@ public class EvaluationActivity extends Activity {
         star5.setImageResource(rating >= 5 ? R.drawable.star_filled : R.drawable.star_empty);
     }
 
+    // 평가 사항 선택시 텍스트 띄우기 메서드
     private void updateSelectedItems() {
         StringBuilder items = new StringBuilder();
         if (checkItem1.isChecked()) {

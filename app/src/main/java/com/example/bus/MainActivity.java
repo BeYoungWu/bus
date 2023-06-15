@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
         btnRes = (Button) findViewById(R.id.btnRes);
         btnEval = (Button) findViewById(R.id.btnEval);
-        btnRes = (Button) findViewById(R.id.btnRes);
         arrive = (TextView) findViewById(R.id.arrive);
 
+        // 하차예약 버튼 클릭 이벤트
         btnRes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // 평가하기 이동
-        Button btnEval = (Button) findViewById(R.id.btnEval);
         btnEval.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_EVALUATION && resultCode == RESULT_OK) {
             if (data != null && data.hasExtra("rating")) {
-                rating = data.getFloatExtra("rating", 0);
-                Toast.makeText(this, "평점: " + rating, Toast.LENGTH_SHORT).show();
+                rating = data.getIntExtra("rating", 0);
+                Toast.makeText(this, "평점: " + rating + "점 제출 완료", Toast.LENGTH_SHORT).show();
             }
         }
     }

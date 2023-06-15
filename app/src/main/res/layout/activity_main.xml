@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -99,7 +98,6 @@
                     android:text="평가하기"
                     android:layout_margin="2dp"/>
             </LinearLayout>
-
         </LinearLayout>
 
         <LinearLayout
@@ -125,7 +123,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="카드등록"/>
-
         </LinearLayout>
 
         <LinearLayout
@@ -145,43 +142,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="10dp">
-
                 <ImageView
+                    android:id="@+id/busRoute"
                     android:layout_width="match_parent"
                     android:layout_height="400dp"
                     android:contentDescription="버스노선도"
                     android:src="@drawable/bus1137" />
             </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/box_border"
-            android:layout_marginBottom="5dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="버스소식"
-                android:textSize="18dp"
-                android:textAlignment="center"/>
-            <FrameLayout
-                android:layout_gravity="center"
-                android:layout_width="400dp"
-                android:layout_height="400dp">
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/viewpager"
-                    android:layout_gravity="center"
-                    android:clipToPadding="false"
-                    android:clipChildren="false"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitXY"
-                    android:layout_marginBottom="10dp"/>
-            </FrameLayout>
-        </LinearLayout>
-
     </LinearLayout>
 
 </ScrollView>
