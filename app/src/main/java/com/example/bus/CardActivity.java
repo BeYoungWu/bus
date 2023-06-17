@@ -34,6 +34,7 @@ public class CardActivity extends Activity {
         selectedCard = (ImageView) findViewById(R.id.selectedCard);
         btnReg = (Button) findViewById(R.id.btnReg);
 
+        // 라디오버튼 체크 이벤트
         rdo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -55,6 +56,7 @@ public class CardActivity extends Activity {
             }
         });
 
+        // 카드등록 버튼 클릭 이벤트
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -111,15 +111,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    // 평가하기 데이터 받아오기
+    // 데이터 받아오기
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
+            // 평가하기 데이터
             if (data != null && data.hasExtra("rating")) {
                 rating = data.getIntExtra("rating", 0);
                 Toast.makeText(this, "평점: " + rating + "점 제출 완료", Toast.LENGTH_SHORT).show();
             }
+            // 카드등록 데이터
             if (data != null && data.hasExtra("cardId")) {
                 int cardId = data.getIntExtra("cardId", 0);
                 selectedCard.setImageResource(cardId);
