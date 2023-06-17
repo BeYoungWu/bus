@@ -6,6 +6,7 @@
     android:padding="30dp">
 
     <RadioGroup
+        android:id="@+id/rdo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <RadioButton
@@ -26,8 +27,19 @@
     </RadioGroup>
 
     <ImageView
+        android:id="@+id/selectedCard"
         android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/box_border"/>
+    
+    <Button
+        android:id="@+id/btnReg"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
+        android:text="등록하기"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"/>
 
 </LinearLayout>

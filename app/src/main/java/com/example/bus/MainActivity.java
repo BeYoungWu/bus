@@ -21,10 +21,9 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnRes, btnEval, btnCard;
     TextView arrive, dialogArrive;
-    ImageView busRoute;
+    ImageView selectedCard, busRoute;
 
     // 평가하기
-    private static final int REQUEST_CODE_EVALUATION = 1;
     private float rating = 0;
 
     @Override
@@ -37,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         btnEval = (Button) findViewById(R.id.btnEval);
         btnCard = (Button) findViewById(R.id.btnCard);
         arrive = (TextView) findViewById(R.id.arrive);
+        selectedCard = (ImageView) findViewById(R.id.selectedCard);
         busRoute = (ImageView) findViewById(R.id.busRoute);
 
         // 하차예약 버튼 클릭 이벤트
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), EvaluationActivity.class);
-                startActivityForResult(intent, REQUEST_CODE_EVALUATION);
+                startActivityForResult(intent, 0);
             }
         });
 
@@ -115,10 +115,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE_EVALUATION && resultCode == RESULT_OK) {
+        if (resultCode == RESULT_OK) {
             if (data != null && data.hasExtra("rating")) {
                 rating = data.getIntExtra("rating", 0);
                 Toast.makeText(this, "평점: " + rating + "점 제출 완료", Toast.LENGTH_SHORT).show();
+            }
+            if (data != null && data.hasExtra("cardId")) {
+                int cardId = data.getIntExtra("cardId", 0);
+                selectedCard.setImageResource(cardId);
             }
         }
     }
